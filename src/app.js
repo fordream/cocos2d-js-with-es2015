@@ -1,7 +1,7 @@
 
-var HelloWorldLayer = cc.Layer.extend({
+let HelloWorldLayer = cc.Layer.extend({
     sprite:null,
-    ctor:function () {
+    ctor:function() {
         //////////////////////////////
         // 1. super init first
         this._super();
@@ -10,18 +10,25 @@ var HelloWorldLayer = cc.Layer.extend({
         // 2. add a menu item with "X" image, which is clicked to quit the program
         //    you may modify it.
         // ask the window size
-        var size = cc.winSize;
+        let size = cc.winSize;
 
         /////////////////////////////
         // 3. add your codes below...
         // add a label shows "Hello World"
         // create and initialize a label
-        var helloLabel = new cc.LabelTTF("Hello World", "Arial", 38);
+        let helloLabel = new cc.LabelTTF("Hello World", "Arial", 20);
         // position the label on the center of the screen
         helloLabel.x = size.width / 2;
         helloLabel.y = size.height / 2 + 200;
         // add the label as a child to this layer
         this.addChild(helloLabel, 5);
+
+
+        let helloLabel2 = new cc.LabelTTF("Hello World 2!!", "Arial", 20);
+        helloLabel2.x = size.width / 2;
+        helloLabel2.y = size.height / 2 + 200 - 20;
+        this.addChild(helloLabel2, 5);
+
 
         // add "HelloWorld" splash screen"
         this.sprite = new cc.Sprite(res.HelloWorld_png);
@@ -35,11 +42,10 @@ var HelloWorldLayer = cc.Layer.extend({
     }
 });
 
-var HelloWorldScene = cc.Scene.extend({
-    onEnter:function () {
+let HelloWorldScene = cc.Scene.extend({
+    onEnter:function() {
         this._super();
         var layer = new HelloWorldLayer();
         this.addChild(layer);
     }
 });
-
